@@ -78,7 +78,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>; Move assembly to providers dir
-md "$(TargetDir)\providers" 2&gt; nul
+md "$(TargetDir)\provider" 2&gt; nul
 move "$(TargetDir)\*.dll" "$(TargetDir)\provider"</PostBuildEvent>
   </PropertyGroup>
 </Project>
