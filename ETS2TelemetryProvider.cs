@@ -49,21 +49,30 @@ namespace SimFeedback.telemetry
         public override void Start()
         {
             if (!isStopped) return;
+            isStopped = false;
             LogDebug("Starting ETS2TelemetryProvider");
             _scsSdkTelemetry = new SCSSdkTelemetry();
+            _scsSdkTelemetry.Data += _scsSdkTelemetry_Data;
         }
 
         private void _scsSdkTelemetry_Data(SCSTelemetry scsTelemetryData, bool newTimestamp)
         {
             try
             {
-                if (_lastScsTelemetry == null || _lastTelemetryData== null || (_lastScsTelemetry.Timestamp != scsTelemetryData.Timestamp))
+                if ((_lastScsTelemetry == null || _lastTelemetryData== null) || (_lastScsTelemetry.Timestamp != scsTelemetryData.Timestamp))
                 {
                     IsConnected = true;
                     IsRunning = true;
 
                     var tmpETS2TelemetryData = new ETS2Data();
                     tmpETS2TelemetryData.Timestamp = scsTelemetryData.Timestamp;
+
+                    tmpETS2TelemetryData.Heave = scsTelemetryData.TruckValues.CurrentValues.AccelerationValues.AngularVelocity.Z;
+                    tmpETS2TelemetryData.Surge = scsTelemetryData.TruckValues.CurrentValues.AccelerationValues.LinearVelocity.Y;
+                    tmpETS2TelemetryData.Sway = scsTelemetryData.TruckValues.CurrentValues.AccelerationValues.LinearVelocity.X;
+                    tmpETS2TelemetryData.Pitch = scsTelemetryData.TruckValues.CurrentValues.PositionValue.Orientation.Pitch;
+                    tmpETS2TelemetryData.Roll = scsTelemetryData.TruckValues.CurrentValues.PositionValue.Orientation.Roll;
+                    tmpETS2TelemetryData.CurrentEngineRpm = scsTelemetryData.TruckValues.CurrentValues.DashboardValues.RPM;
 
                     var args = new TelemetryEventArgs(new ETS2TelemetryInfo(tmpETS2TelemetryData, _lastTelemetryData));
                     RaiseEvent(OnTelemetryUpdate, args);
