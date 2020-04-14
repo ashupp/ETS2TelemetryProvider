@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("ETS2TelemetryProvider")]
-[assembly: AssemblyDescription("Base Interface and abstract classes to build your own TelemetryProvider.")]
+[assembly: AssemblyDescription("ETS2 Telemetry Provider for SimFeedback")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ashnet GmbH")]
 [assembly: AssemblyProduct("ETS2TelemetryProvider")]
-[assembly: AssemblyCopyright("Copyright ©  ashnet GmbH 2019")]
+[assembly: AssemblyCopyright("Copyright © ashnet GmbH 2020")]
 [assembly: AssemblyTrademark("SimFeedback")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder Standardwerte für die Build- und Revisionsnummern verwenden,
 // indem Sie "*" wie unten gezeigt eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.1.0")]
-[assembly: AssemblyFileVersion("0.0.1.0")]
+[assembly: AssemblyVersion("0.0.2.0")]
+[assembly: AssemblyFileVersion("0.0.2.0")]
