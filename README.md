@@ -4,7 +4,6 @@ Euro Truck Simulator 2 Telemetry Provider for SimFeedback
 Please support this great project.  
 https://opensfx.com
 
-## Prerelease on the release tab
 ## Warning  
 I am not recommending to use this plugin  at the current stage of development unless you are know exactly what you are doing.  
 **Unpredicted movement of you SFX-100 could happen at any time when this plugin is enabled.**  
@@ -18,6 +17,7 @@ Instructions and download here: https://github.com/RenCloud/scs-sdk-plugin
 
 ## Installation
 
+Do not click on Download on this page. Download the file from the release tab!  
 Download zip archive, put it into your SimFeedbackFolder root and Extract there.  
 As the directorys should match, each file should be put automatically in the right place.  
 
