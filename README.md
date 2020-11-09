@@ -17,7 +17,8 @@ Instructions and download here: https://github.com/RenCloud/scs-sdk-plugin
 
 ## Installation
 
-Do not click on Download on this page. Download the file from the release tab!  
+Do not click on Download on this page. Download the file from the releases tab!  
+https://github.com/ashupp/ETS2TelemetryProvider/releases/  
 Download zip archive, put it into your SimFeedbackFolder root and Extract there.  
 As the directorys should match, each file should be put automatically in the right place.  
 
