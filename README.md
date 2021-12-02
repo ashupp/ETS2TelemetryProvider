@@ -12,7 +12,7 @@ I am not responsible of any damages caused by usage of this plugin!
 
 
 ## Requirements
-You need to have version V.1.9.0 of the scs-sdk-plugin installed.  
+You need to have this exact version **V.1.9.0** of the scs-sdk-plugin installed.  
 Instructions and download here: https://github.com/RenCloud/scs-sdk-plugin  
 
 ## Installation
