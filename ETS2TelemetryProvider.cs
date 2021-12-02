@@ -16,7 +16,7 @@ namespace SimFeedback.telemetry
         public ETS2TelemetryProvider()
         {
             Author = "ashupp / ashnet GmbH";
-            Version = "0.0.2.0";
+            Version = "0.0.8.0";
             BannerImage = @"img\banner_ets2.jpg";
             IconImage = @"img\icon_ets2.png";
             TelemetryUpdateFrequency = 30;
@@ -45,6 +45,7 @@ namespace SimFeedback.telemetry
             _scsSdkTelemetry.Data -= _scsSdkTelemetry_Data;
             _scsSdkTelemetry.Dispose();
             IsConnected = false;
+            IsRunning = false;
             isStopped = true;
         }
 
@@ -71,10 +72,13 @@ namespace SimFeedback.telemetry
         {
             try
             {
-                if ((_lastScsTelemetry == null || _lastTelemetryData== null) || (_lastScsTelemetry.Timestamp != scsTelemetryData.Timestamp))
+                if ((_lastScsTelemetry == null || _lastTelemetryData == null) || (_lastScsTelemetry.Timestamp != scsTelemetryData.Timestamp))
                 {
-                    IsConnected = true;
-                    IsRunning = true;
+                    if (scsTelemetryData.Timestamp > 0)
+                    {
+                        IsConnected = true; 
+                        IsRunning = true;
+                    }
 
 
                     // Units:
@@ -130,15 +134,11 @@ namespace SimFeedback.telemetry
                     tmpETS2TelemetryData.Roll = ConvertRange(-0.5, 0.5, -180, 180, scsTelemetryData.TruckValues.CurrentValues.PositionValue.Orientation.Roll);
                     tmpETS2TelemetryData.CurrentEngineRpm = scsTelemetryData.TruckValues.CurrentValues.DashboardValues.RPM;
 
-
                     var args = new TelemetryEventArgs(new ETS2TelemetryInfo(tmpETS2TelemetryData, _lastTelemetryData));
                     RaiseEvent(OnTelemetryUpdate, args);
                     _lastTelemetryData = tmpETS2TelemetryData;
                     _lastScsTelemetry = scsTelemetryData;
-                }
-                else
-                {
-                    IsRunning = false;
+
                 }
             }
             catch (Exception e)

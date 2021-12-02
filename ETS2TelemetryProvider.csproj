@@ -57,9 +57,6 @@
     <Compile Include="ETS2TelemetryValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="SimFeedbackTelemetryProvider.licenseheader" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="img\banner_ets2.jpg">
